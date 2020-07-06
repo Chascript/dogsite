@@ -1,2 +1,2 @@
-# ohmydog
+# Read me
 A first attempt at creating a data persistance piece to count dog votes.  This is my first project using html/css/javascript, learning skills along the way. This will be put towards a current project I'm creating where dogs sign up and upload photos of themselves or walks. They will then be able to paw through photos of other dog users and vote for eachother. Create their own profile page with a information about themselves and look for new pals to play ball with.  This is my first node module and web server which will be the building blocks to create my first website.  I have ideas on my CodePen... https://codepen.io/Arctic_Surgeon  Always open and looking for feedback to improve my code, new ideas and thoughts
