@@ -1,0 +1,110 @@
+:root{
+ --primary:#ECECEC;  
+ --shadow:0 1px 10px #404040;
+ --dark: #4d4848;
+ --light: #FFFFFF;
+
+}
+
+#container{
+    display:flex;
+    justify-content: space-around;
+    box-shadow: var(--shadow); 
+    background-color: var(--primary);  
+}
+
+
+#center{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    flex-wrap: wrap;
+    flex: 4 0 auto;
+}
+
+h1{
+    text-decoration: underline;
+    justify-content: center;
+    padding: 8px;
+    font-weight: 400px;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    font-size: 20px;
+ }
+
+.formBox {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: center; 
+    align-self: center;
+    flex-direction: column;
+    padding: 10px;
+}
+
+input{
+    max-width: 100%;
+    width: 200px;
+    margin-top: 5px;
+}
+
+::placeholder {
+    color:var(--dark);
+    font-size: 13px;
+    text-align: center;
+}
+
+#registerDogButton {
+    display: flex;
+    padding-top: 10px;
+    justify-content: center;
+}
+
+#rightPhotos #leftPhotos {
+    display:flex;
+    flex:1 4 auto;
+}
+
+#rightPhotos {
+    transform: scaleX(-1);
+}
+
+#poodlePhoto {
+    max-width: 100%;
+ }
+
+@media (max-width:960px){
+    h1{
+        font-size:15px;
+    }
+
+    .formBox{
+        font-size: 13px;
+    }
+
+    ::placeholder{
+        font-size: 12px;
+    }
+
+    #rightPhotos{
+        display:none;
+        margin: 0 auto;
+    }
+
+}
+
+@media (max-width:620px) {
+    #container{
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
+
+    #poodlePhoto{
+        height: 400px;  
+    }
+   
+   #leftPhotos{
+       display: flex;
+       justify-content: center;
+   }
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://unpkg.com/axios/dist/axios.min.js" ></script>
+    <link rel="stylesheet" href="css/SignUpPage.css">
+    <script type="text/javascript" src="js/sign-up.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Creation</title>
+</head>
+<body>
+<section id = "container">   
+<!--Photos on left side-->
+
+    <section id= "leftPhotos">
+            <img id=poodlePhoto src='photosofdogs/PoodleBlack&White.jpg' alt="Pic Of Poodle">
+    </section>
+<section id= "center">
+    <form class = 'form' action='/dog' method='post' enctype="multipart/form-data">
+        <h1>Dog Creation</h1>
+    <!--Form for the dog creation-->
+        <div class = "formBox">
+            <input type="file" accept="image/*" name="photo" id="profilePic">          
+        </div>
+            <div class = "formBox">
+                <label for="name"> Name: </label>
+                <input type = "text" id = "name" name="name" placeholder = "What do your humans call you?" required>
+            </div>
+            <div class = "formBox">
+                <label for="breed"> Breed: </label>
+                <input type = "text" id = "breed" name="breed" placeholder = "What breed are you?" required>
+            </div>
+            <div class = "formBox">
+                <label for="dob"> Date Of Birth: </label>
+                <input type = "text" id = "dob" name="dob" placeholder = "When were you born?" onfocus="(this.type='date')" onblur="(this.type='text')" required>
+            </div>
+            <div class = "formBox">
+                <label for="colour"> Colour Of Fur: </label>
+                <input type = "text" id = "colour" name="colour" placeholder = "What colour do you think you are?" required>
+            </div>
+            <div id = registerDogButton>
+                <button id="saveDog">Register Dog</button>
+            </div>
+        </form>
+    </section>
+
+    <!--Photos on right side-->
+    <section id= "rightPhotos">
+        <img id=poodlePhoto src='photosofdogs/PoodleBlack&White.jpg' alt="Pic Of Poodle">
+    </section>
+</section>
+</body>
+</html> 
