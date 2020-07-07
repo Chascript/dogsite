@@ -1,24 +1,3 @@
 {
-  "Roy": {
-    "name": "Roy",
-    "breed": "Standard Poodle",
-    "dob": "2019-11-22",
-    "colour": "Silver",
-    "votes": 0
-  },
-  "": {
-    "name": "",
-    "breed": "",
-    "dob": "",
-    "colour": "",
-    "votes": 0
-  },
-  "test": {
-    "name": "test",
-    "breed": "test",
-    "dob": "86786-07-06",
-    "colour": "test",
-    "votes": 0
-  },
   "undefined": {}
 }

@@ -24,8 +24,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 //app.use(express.urlencoded(),{extended: true});
 //saves
 const saveData = () => {
-    let data = JSON.stringify(dogs, null, 2) //gets the data dogData.Json and makes it so JS can understand the language
-    fs.writeFile('dogData.Json', data, finished) //adds the key pair to the file and saves it.
+    let jsonData = JSON.stringify(data, null, 2) //gets the data dogData.Json and makes it so JS can understand the language
+    fs.writeFile('dogData.Json', jsonData, finished) //adds the key pair to the file and saves it.
 
     function finished(err) {
         if(err){
@@ -36,7 +36,7 @@ const saveData = () => {
     }
 }
 
-//check file type
+//check file type not current using
 function checkFileType(file,cb){
     //Allowed extensions
     const filetypes = /jpeg|jpg|png|gif|json/;
@@ -83,25 +83,28 @@ const dogs = JSON.parse(fs.readFileSync('dogData.json'));// loads the data file
 
 app.post('/upload', (req,res)=>{
     upload(req,res, (err)  => {
-
         //there are currently no validation (is there a file??)
-      console.log(req.file);
+      console.log(req.photo);
      res.send('file uploaded')
     })
 })
 
 
 // adds a dog to dogData.Json    
-app.post('/dog', function (request, response) {
-
-    upload()
-    
-
+app.post('/dog', function (request, response) {   
     console.log('adding a dog')
-    dogs[request.body.name] = request.body
-    response.send('data has been saved')
+    data[request.body.name] = request.body
+    console.log(request.body)
     saveData() 
-    return;
+/*
+    upload(request,response, (err)  => {
+        //there are currently no validation (is there a file??)
+        console.log(request.photo);
+        response.send('all saved')
+    })
+    */
+   response.send('dog saved success')
+    return
 })
 
 // list all votes for dogs (all data in dogData)
