@@ -1,76 +1,34 @@
-import formdata from 'form-data';
 // wait for the document to load)
 window.onload = () => {
-
-//button 
-  document.getElementById('saveDog').addEventListener('click', handleFormData) //remember to add log dog when upload works
-  // assign a click event to the saveDog button
+  document.getElementById('saveDog').addEventListener('click', signup)
 };
 
-const handleFormData = async (ev)  => {
-  // validate
-  ev.preventDefault();
-  // if invalid, stop form by doing ev.preventDefault()
-let form = ev.target
-  let data = new FormData(form);
+const signup = async (ev) => {
 
-  data.set('name',name);
-  data.set('breed', breed);
-  data.set('dob',dob);
-  data.set('colour', colour);
-  data.append('votes', 0);
-  data.append('file', file, file.fileName);
-  response = await axios.post('/dog',data) //{
-    /*headers: {
+  ev.preventDefault();
+
+  let form = new FormData();
+  const file = document.getElementById('photo')
+  console.log('file', file)
+  // check that files.files contains something - i imagine it will need to check the .length of that to be greater than 0
+  // if they haven't added a file, tell them they need to, and return from the function
+  console.log('file.files[0]', file.files[0])
+  form.append('photo', file.files[0], file.files[0].name);
+  // add in other form fields here...
+
+  // also check name is valid string...
+
+  form.set('name', document.getElementById('name').value);
+  // don't need to set votes, as it's always zero, so we set in the server
+  form.set('votes', 0);
+  // add a try/catch here - then check response status code is 200, and then display message/redirect to the homepage
+  const response = await axios.post('/dog', form, {
+    headers: {
       'accept': 'application/json',
       'Accept-Language': 'en-US,en;q=0.8',
-      'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
-      }
-    });*/
-  console.log('all data sent')
+      'Content-Type': `multipart/form-data; boundary=${form._boundary}`,
+    }
+  });
+  console.log('response', response)
 
-  alert(`${document.getElementById('name').value} is signed up, Happy Voting!`)
-  window.location = ('/index.html')
 }
-
-
-
-
-
-
-
-
-const savefile =  (ev) => {
-  ev.preventDefault();
-const url = "http://localhost:3003/upload"
-
-  let photo = new FormData();
-  photo.append('file', file, file.fileName);
-
-  return (dispatch) =>  { 
-     axios.post(URL, photo, {
-  headers: {
-    'accept': 'application/json',
-    'Accept-Language': 'en-US,en;q=0.8',
-    'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
-  }
-})
-.then((response) => {
-  console.log('saved')
-}).catch((error) => {
-  console.log('err')
-});
-};
-}
-
-
-
-/*
-  const response = await axios.post(url, profilephoto, config)
-      .then(res => console.log(res.data))
-      .catch(err => console.log('Error: ', err));
-
-    */
-  //console.log(photo)
-  //const response = await axios.post('/upload', photo)
-  
