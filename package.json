@@ -1,0 +1,19 @@
+{
+  "name": "serverexample",
+  "version": "1.0.0",
+  "description": "an example to create a server",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "form-data": "^3.0.0",
+    "multer": "^1.4.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "conan",
+  "license": "ISC"
+}
