@@ -3,9 +3,7 @@ const fs = require('fs');
 const { json, response } = require('express');
 const { finished } = require('stream');
 
-
-
-//middleware
+// middleware
 const bodyParser = require('body-parser');
 const multer = require('multer');
 const path = require('path')
@@ -24,8 +22,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 //app.use(express.urlencoded(),{extended: true});
 //saves
 const saveData = () => {
-    let jsonData = JSON.stringify(data, null, 2) //gets the data dogData.Json and makes it so JS can understand the language
-    fs.writeFile('dogData.Json', jsonData, finished) //adds the key pair to the file and saves it.
+    let jsonData = JSON.stringify(dogs, null, 2) //gets the data dogData.Json and makes it so JS can understand the language
+    fs.writeFile('dogs.json', jsonData, finished) //adds the key pair to the file and saves it.
 
     function finished(err) {
         if(err){
@@ -53,20 +51,36 @@ function checkFileType(file,cb){
 }
 
 // set storage engine
-const storage = multer.diskStorage({
+/*const storage = multer.diskStorage({
     destination: 'public/photosofdogs/',
     filename: function (req, file, cb ) {
+        console.log('inside filename...');
         cb(null,file.fieldname + '-' + Date.now() + path.extname(file.originalname));
     }
-});
+});*/
 //init upload
+/*
 const upload = multer({
     storage: storage,
     //limits:{fileSize:1000000} 1mb size limit
     fileFilter: function(req, file, cb){
         checkFileType(file, cb)
     }
-}).single('photo');
+}).single('photo');*/
+
+
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, 'public/photosofdogs')
+    },
+    filename: function (req, file, cb) {
+      cb(null,file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+    }
+  })
+   
+  var upload = multer({ storage: storage })
+
+
 /*
 /add/:dogId = adds dog to data
 /voteData = shows all data
@@ -79,23 +93,42 @@ const upload = multer({
 
 // https://nodejs.org/api/fs.html
 
-const dogs = JSON.parse(fs.readFileSync('dogData.json'));// loads the data file
+const dogs = JSON.parse(fs.readFileSync('dogs.json'));// loads the data file
 
-app.post('/upload', (req,res)=>{
-    upload(req,res, (err)  => {
+app.post('/dog', upload.single('photo'), (req, res) => {
+  console.log('inside upload end point')
+
+  console.log(req.photo);
+  console.log(req.body);
+
+  const newDog = {
+    name: req.body.name,
+    votes: 0, 
+    imageFileName: req.file.filename };
+
+  dogs[newDog.name] = newDog;
+
+  // signal to the front end that the file has been uploaded
+  res.send('file uploaded')
+
+  // save the data...
+  saveData();  
+    /*upload(req,res, (err)  => {
         //there are currently no validation (is there a file??)
       console.log(req.photo);
      res.send('file uploaded')
-    })
+    })*/
 })
 
-
+/*
 // adds a dog to dogData.Json    
 app.post('/dog', function (request, response) {   
     console.log('adding a dog')
-    data[request.body.name] = request.body
-    console.log(request.body)
-    saveData() 
+
+    console.log('our request is', request)
+//    data[request.body.name] = request.body
+//    console.log(request.body)
+  //  saveData() */
 /*
     upload(request,response, (err)  => {
         //there are currently no validation (is there a file??)
@@ -103,9 +136,9 @@ app.post('/dog', function (request, response) {
         response.send('all saved')
     })
     */
-   response.send('dog saved success')
-    return
-})
+//   response.send('dog saved success')
+//    return
+//})
 
 // list all votes for dogs (all data in dogData)
 app.get('/voteData', (request,response) => response.send(dogs))

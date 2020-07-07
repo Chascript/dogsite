@@ -21,11 +21,16 @@ const renderDog = (dog) => {
 
     document.getElementById('container').appendChild(dogContainer);
 
+
+    const dogPhoto = document.createElement('img');
+    dogPhoto.src = '/photosofdogs/' + dog.imageFileName
+
     //dog-photo
     dogPhotoContainer = document.createElement('div')
     dogPhotoContainer.setAttribute('id', 'dog-photo')
 
     dogContainer.appendChild(dogPhotoContainer)
+    dogContainer.appendChild(dogPhoto)
 
     /*
     //INCLUDE IMAGE HERE
