@@ -10,7 +10,8 @@
     display:flex;
     justify-content: space-around;
     box-shadow: var(--shadow); 
-    background-color: var(--primary);  
+    background-color: var(--primary); 
+    height: 850px; 
 }
 
 
@@ -21,6 +22,7 @@
     padding: 40px;
     flex-wrap: wrap;
     flex: 4 0 auto;
+    overflow-y: scroll;
 }
 
 h1{
@@ -30,8 +32,31 @@ h1{
     font-weight: 400px;
     letter-spacing: .09em;
     text-transform: uppercase;
-    font-size: 20px;
+    font-size: 24px;
  }
+
+
+.error {
+    color: red;
+    font-size:13px;
+} 
+
+#image-preview{
+    max-width: 250px;
+    min-height: 250px;
+    box-shadow: var(--shadow);
+    margin-bottom: 15px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#image-preview-image{
+    display:none;
+    width: 100%;
+}
 
 .formBox {
     display:flex;
@@ -75,7 +100,7 @@ input{
 
 @media (max-width:960px){
     h1{
-        font-size:15px;
+        font-size:18px;
     }
 
     .formBox{
@@ -97,6 +122,7 @@ input{
     #container{
         flex-direction: column-reverse;
         justify-content: center;
+        height: max-content;
     }
 
     #poodlePhoto{
@@ -106,5 +132,9 @@ input{
    #leftPhotos{
        display: flex;
        justify-content: center;
+   }
+
+   #center{
+       overflow-y: auto;
    }
 }
