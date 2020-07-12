@@ -50,14 +50,6 @@ function checkFileType(file,cb){
     }
 }
 
-// set storage engine
-/*const storage = multer.diskStorage({
-    destination: 'public/photosofdogs/',
-    filename: function (req, file, cb ) {
-        console.log('inside filename...');
-        cb(null,file.fieldname + '-' + Date.now() + path.extname(file.originalname));
-    }
-});*/
 //init upload
 /*
 const upload = multer({
@@ -97,92 +89,80 @@ const dogs = JSON.parse(fs.readFileSync('dogs.json'));// loads the data file
 
 app.post('/dog', upload.single('photo'), (req, res) => {
   console.log('inside upload end point')
-
-  console.log(req.photo);
-  console.log(req.body);
-
   const newDog = {
+    username: req.body.username,
     name: req.body.name,
-    votes: 0, 
+    breed: req.body.breed,
+    dob: req.body.dob,
+    colour: req.body.colour,
+    votes: 0,
     imageFileName: req.file.filename };
 
-  dogs[newDog.name] = newDog;
+    console.log(newDog);
+
+  dogs[newDog.username] = newDog;
+
 
   // signal to the front end that the file has been uploaded
   res.send('file uploaded')
 
   // save the data...
   saveData();  
-    /*upload(req,res, (err)  => {
-        //there are currently no validation (is there a file??)
-      console.log(req.photo);
-     res.send('file uploaded')
-    })*/
 })
-
-/*
-// adds a dog to dogData.Json    
-app.post('/dog', function (request, response) {   
-    console.log('adding a dog')
-
-    console.log('our request is', request)
-//    data[request.body.name] = request.body
-//    console.log(request.body)
-  //  saveData() */
-/*
-    upload(request,response, (err)  => {
-        //there are currently no validation (is there a file??)
-        console.log(request.photo);
-        response.send('all saved')
-    })
-    */
-//   response.send('dog saved success')
-//    return
-//})
 
 // list all votes for dogs (all data in dogData)
 app.get('/voteData', (request,response) => response.send(dogs))
 // give the vote data for chosen dog
-app.get('/voteData/:dogId', findDogVotes)
-
-function findDogVotes  (request,response)  {
+app.get('/voteData/:dogId', (request,response) => {
     const {dogId} = request.params; //gets the dogId
     if(dogs[dogId]) { //If there is such a dogId in file.....
         reply = dogs[dogId]
     } else { //If that dogId isn't there
         reply = {
             msg : `${dogId} is not signed up` //return this message
-        } 
-    }
-    response.send(reply); //send the reply (message)
-}
+        }  
+        
+    } response.send(reply); //send the reply (message)
+})
 
 // list all the dogs in our data
-app.get('/dogs', function (req, res) {
+app.get('/dogs', (req, res) => {
     const dogIds = Object.keys(dogs)
     const a = dogIds.map(dogId => dogs[dogId])
 
-    return res.send(a) //lists the objects names....future usernames
+    return res.send(a)
 });
 
-// this really should be app.post - when connected to a front end
-// votes for chosen dog
-app.get('/dog/:dogId/vote', (req, res) => {
-    const {dogId} = req.params;    
-    console.log('someone is voting...')
-    // The dog dosen't exist
-    if (dogs[dogId]) {
-    // record the vote 
-        dogs[dogId].votes++ // add one to chosen dog
-        res.send({ votes: dogs[dogId].votes })
-        saveData();
-    } else{
-    console.log('someone tried to vote for a non-existing dog')
-    return res.send(`${dogId} doesn't exist`)
-    }
+// list all usernames
+app.get('/dogs/:username/exist', (req,res) => {
+    const chosenUsername = req.params.username
+    const exist = dogs.hasOwnProperty(chosenUsername)
+    console.log(exist)
+    console.log(chosenUsername)
+    res.send(exist)
 })
 
 
+// this really should be app.post - when connected to a front end
+// votes for chosen dog
+app.get('/dog/:username/:name/vote', (req, res) => {
+    const name = req.params.name; 
+    const username = req.params.username; 
+   
+    console.log(username) 
+    console.log(name) 
+    console.log('someone is voting...')
+    // The dog dosen't exist
+    if (dogs[username].name) {
+    // record the vote 
+        dogs[username].votes++ // add one to chosen dog
+        res.send({ votes: dogs[username].votes })
+        saveData();
+    } else{
+    console.log('someone tried to vote for a non-existing dog')
+    res.send(`${name} doesn't exist under ${username}`)
+    }
+})
 
 // Figuring out how to target data in JSON
 
@@ -195,5 +175,3 @@ app.get('/dog/:dogId/vote', (req, res) => {
 
 
 //upload image
-
-
