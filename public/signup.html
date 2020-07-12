@@ -29,7 +29,7 @@
         </div>
         <div class = "formBox">
             <label for="username" > Username: </label> <span id="error-username" class = "error"></span>
-            <input type = "text" id = "username" name="username" placeholder = "What is your nick-name?" required>
+            <input type = "text" id = "username" name="username" placeholder = "What is your nick-name?" onkeyup="usernameExists(event)" required>
         </div>
             <div class = "formBox">
                 <label for="name" > Name: </label> <span id="error-name" class = "error"></span>

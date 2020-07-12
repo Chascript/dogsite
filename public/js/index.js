@@ -6,6 +6,7 @@ const setup = async () => {
 
       // render each dog component...
       data.forEach(renderDog);
+      
     }
     catch(err) {
         console.log(err)
@@ -60,28 +61,50 @@ const renderDog = (dog) => {
 
     //votes
     const voteNumber = document.createElement('p') //creates voteNumber
-    voteNumber.setAttribute('id', 'total-votes') //sets the id for voteNumber
+    voteNumber.setAttribute('id', dog.username) //sets the id for voteNumber
     voteNumber.textContent = 'Total Votes = ' //Adds a set text for voteNumber
 
-    const voteNode = document.createTextNode(dog.votes) // creates voteNode (the number of votes for dog)
+    const voteNode = document.createTextNode(dog.votes)
+     // creates voteNode (the number of votes for dog)
     voteNumber.appendChild(voteNode) // voteNode is a child of voteNumber
     votingContainer.appendChild(voteNumber) //voteNumber is a child of votingConatiner
 
     //button
     const voteForDogAbove = document.createElement('button') //create the voteForDogAbove button
-    voteForDogAbove.setAttribute('id', 'btn') //sets to id for voteForDogAbove
+    voteForDogAbove.setAttribute('class', 'btn')//sets the class for voteForDogAbove
+    //voteForDogAbove.setAttribute('id', dog.username)//sets the class for voteForDogAbove
+   // voteForDogAbove.setAttribute('value', dog.name)//sets the class for voteForDogAbove
+    
+//    document.getElementById(dog.username).setAttribute('onclick' , voteForDog(dog.name,dog.username)) wont work as broswers reads function() so will call function
+   /* document.getElementById(dog.username).onclick = (ev)=>{ 
+        voteForDog(dog.name,dog.username);
+    }*/
+    voteForDogAbove.addEventListener('click', function(){voteForDog(dog.username,dog.name) }, false);
+
+
+   
+    
+    //voteForDogAbove.onclick(voteForDog())
     voteForDogAbove.textContent = 'Vote For Above Dog' //adds a set text for voteForDogAbove
     votingContainer.appendChild(voteForDogAbove) //voteForDogAbove is a child of votingConatiner
+
 }
-document.getElementById('btn').addEventListener('click', voteForDog)
+/*
+const voteButton = document.getElementsByClassName('btn')
 
-const voteForDog = () => {
+voteButton = addEventListener('click' , voteForDog)
+*/
+const voteForDog = async (username,name, voteNumber) => {
+    const response = await axios.get(`/dog/${username}/${name}/vote`)
+   
+    console.log('reponse', response)
+    const element = document.getElementById(username)
+    console.log(element)
+    element.innerText= `Total Votes = ${response.data.votes}`
+   // location.reload()
 
-    const dogId = {
+    return
 
-    }
-
-    const response = axios.post('/dog/:dogId/vote', dogs);
 }
 
 

@@ -54,7 +54,7 @@
     font-size: 18px;
 }
 
-#btn{
+.btn{
     margin-bottom: 10px;
     box-shadow: var(--shadow);
 

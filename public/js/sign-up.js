@@ -37,12 +37,17 @@ const signup = async (ev) => {
   }
    //username
    if(username.value === '' || username.value == null){
+    errorUsername.style.color = '#ff0000'
     errorUsername.innerText= 'Username is required'
-    messages.push('Username')
-  } else{
-    errorUsername.innerText = ''
-    form.set('Username', username.value);
-  }
+    messages.push('username')
+  } else {   
+      if ( await usernameExists()) {
+        console.log('username already exists')
+        messages.push('usernameexists')
+      }else{
+        console.log('username is added to form data SUBMIT')
+        form.set('username', username.value)
+    }}
   //name
   if(name.value === '' || name.value == null){
     errorName.innerText= 'Name is required'
@@ -78,7 +83,7 @@ const signup = async (ev) => {
   //error message
   console.log(messages)
   if(messages.length > 0){
-    errorMessage.innerText = 'Please fill in required fields'
+    errorMessage.innerText = 'Please correct fields'
     return
   } else{
     errorMessage.innerText = ''
@@ -108,4 +113,38 @@ const showPreview = (event) => {
     preview.style.maxWidth = "250px";
     preview.style.borderRadius = "50%";
   }
+}
+
+//check if username exists
+const usernameExists = async (ev) => {
+  console.log('checking if username is used.....')
+  const message = document.getElementById('error-username')
+  const username = document.getElementById('username').value
+  if(username.length === 0){ 
+    message.innerText = ''
+    return
+  }
+  //send the username value
+  try {
+    const response = await axios.get(`dogs/${username}/exist`)
+    
+    //retrieve the result (true or false)
+    if(response.data) {
+      message.innerText = `${username} is already in use`
+      message.style.color = '#ff0000'
+      console.log('taken')
+      console.log('username in messages')
+      result = true
+    }else {
+      message.innerText = `${username} availible`
+      message.style.color = '#119100'
+      console.log('free')
+      console.log('avalible')
+      result = false
+    }  
+  }
+  catch(err){
+    console.log(err)
+  }
+  return result;
 }
