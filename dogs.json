@@ -1,2 +1,11 @@
 {
+  "Poodle-Power": {
+    "username": "Poodle-Power",
+    "name": "Manson",
+    "breed": "Miniature Poodle",
+    "dob": "2019-01-08",
+    "colour": "Black",
+    "votes": 0,
+    "imageFileName": "photo-1594723667290.jpg"
+  }
 }

@@ -7,6 +7,7 @@ const { finished } = require('stream');
 const bodyParser = require('body-parser');
 const multer = require('multer');
 const path = require('path')
+const sharp = require('sharp')
 
 const app = express();
 const port = 3003;
@@ -34,34 +35,8 @@ const saveData = () => {
     }
 }
 
-//check file type not current using
-function checkFileType(file,cb){
-    //Allowed extensions
-    const filetypes = /jpeg|jpg|png|gif|json/;
-    //check extension
-    const extname = filetypes.test(path.extname(file.originalname).toLowerCase())
-    // check mime
-    const mimetype = filetypes.test(file.mimetype)
 
-    if(mimetype && extname){
-        return cb(null,true);
-    } else{
-        cb('Error: Images Only');
-    }
-}
-
-//init upload
-/*
-const upload = multer({
-    storage: storage,
-    //limits:{fileSize:1000000} 1mb size limit
-    fileFilter: function(req, file, cb){
-        checkFileType(file, cb)
-    }
-}).single('photo');*/
-
-
-var storage = multer.diskStorage({
+const storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, 'public/photosofdogs')
     },
@@ -70,7 +45,7 @@ var storage = multer.diskStorage({
     }
   })
    
-  var upload = multer({ storage: storage })
+  const upload = multer({ storage: storage })
 
 
 /*
@@ -81,7 +56,27 @@ var storage = multer.diskStorage({
 /dog/:dogId/vote = adds 1 to current vote total for chosen dog
 /upload = saves photo
 */
-
+const resize = async (image) => {
+    try{
+    console.log(image)
+    const resize = await sharp("public/photosofdogs/"+ image).resize(300,200).toBuffer(function(err,buffer){
+        fs.writeFile("public/photosofdogs/"+ image,buffer,finished)
+        function finished(err) {
+            if(err){
+                console.log('Error saving resized image', err);
+                return
+            }
+            console.log('image has been resized and saved') // to say all is complete (catch any errors (shouldn't be any))
+        }
+    })
+    console.log(resize)
+    //sharp(image)
+ // .resize(200, 300).toFile('public/photosofDogs')
+    }
+    catch(err){
+        console.log('err resizing',err)
+    }
+}
 
 // https://nodejs.org/api/fs.html
 
@@ -99,6 +94,10 @@ app.post('/dog', upload.single('photo'), (req, res) => {
     imageFileName: req.file.filename };
 
     console.log(newDog);
+
+
+
+   resize(newDog.imageFileName)
 
   dogs[newDog.username] = newDog;
 
