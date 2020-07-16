@@ -3,10 +3,9 @@
     --shadow:0 1px 10px #404040;
     --dark: #4D4848;
     --light: #FFFFFF;
-
 }
 
-#container {
+.container {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
@@ -14,48 +13,45 @@
     background-color: var(--primary);
 }
 
-#dog-container{
+.dog-container{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 30px;
-    
 }
 
-#dog-photo{
+.dog-photo{
     display:flex;
     flex-direction: column;
     align-items: center;
     height: 250px;
     width: 250px;
-
 }
 
-#photo-of-dog-above{
+.photo-of-dog-above{
     max-height: 250px;
     max-width: 250px;
     border-radius: 50%;
     box-shadow: var(--shadow);
 }
 
-#dog-name{
+.dog-name{
     font-size: 20px;
     text-decoration: underline;
 }
 
-#voting-options{
+.voting-options{
     display:flex;
     flex-direction: column;
     align-items: center;
 }
 
-#total-votes {
+.total-votes {
     font-size: 18px;
 }
 
 .btn{
     margin-bottom: 10px;
     box-shadow: var(--shadow);
-
 }

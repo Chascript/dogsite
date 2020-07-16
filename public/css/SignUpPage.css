@@ -3,10 +3,9 @@
  --shadow:0 1px 10px #404040;
  --dark: #4d4848;
  --light: #FFFFFF;
-
 }
 
-#container{
+.container{
     display:flex;
     justify-content: space-around;
     box-shadow: var(--shadow); 
@@ -15,7 +14,7 @@
 }
 
 
-#center{
+.center{
     display:flex;
     flex-direction: column;
     align-items: center;
@@ -41,7 +40,7 @@ h1{
     font-size:13px;
 } 
 
-#image-preview{
+.image-preview{
     max-width: 250px;
     min-height: 250px;
     box-shadow: var(--shadow);
@@ -53,12 +52,12 @@ h1{
     justify-content: center;
 }
 
-#image-preview-image{
+.image-preview-image{
     display:none;
     width: 99%;
 }
 
-.formBox {
+.form-box{
     display:flex;
     flex-wrap:wrap;
     justify-content: center; 
@@ -79,22 +78,22 @@ input{
     text-align: center;
 }
 
-#registerDogButton {
+.register-dog-button{
     display: flex;
     padding-top: 10px;
     justify-content: center;
 }
 
-#rightPhotos #leftPhotos {
+.right-photos .left-photos{
     display:flex;
     flex:1 4 auto;
 }
 
-#rightPhotos {
+.right-photos {
     transform: scaleX(-1);
 }
 
-#poodlePhoto {
+.poodle-photo {
     max-width: 100%;
  }
 
@@ -103,7 +102,7 @@ input{
         font-size:18px;
     }
 
-    .formBox{
+    .form-box{
         font-size: 13px;
     }
 
@@ -111,30 +110,29 @@ input{
         font-size: 12px;
     }
 
-    #rightPhotos{
+    .right-photos{
         display:none;
         margin: 0 auto;
     }
-
 }
 
 @media (max-width:620px) {
-    #container{
+    .container{
         flex-direction: column-reverse;
         justify-content: center;
         height: max-content;
     }
 
-    #poodlePhoto{
+    .poodle-photo{
         height: 400px;  
     }
    
-   #leftPhotos{
+   .left-photos{
        display: flex;
        justify-content: center;
    }
 
-   #center{
+   .center{
        overflow-y: auto;
    }
 }

@@ -9,46 +9,45 @@
     <title>Dog Creation</title>
 </head>
 <body>
-<section id = "container">   
+<section id="container" class='container'>   
 <!--Photos on left side-->
-
-    <section id= "leftPhotos">
-            <img id=poodlePhoto src='photosofdogs/PoodleBlack&White.jpg' alt="Pic Of Poodle">
+    <section id="left-photos" class='left-photos'>
+            <img id=poodle-photo class='poodle-photo' src='photosofdogs/PoodleBlack&White.jpg' alt="Pic Of Poodle">
     </section>
-<section id= "center">
-    <form id = 'form' action='/upload' method='POST' enctype="multipart/form-data">
+<section id="center" class='center'>
+    <form id='form' class='form' action='/upload' method='POST' enctype="multipart/form-data">
         <h1>Dog Creation</h1>
     <!--Form for the dog creation-->
-        <div class = "formBox">
-            <div id= "image-preview">
-                <img src="" alt="Image Preview" id="image-preview-image" />
+        <div class="form-box">
+            <div id="image-preview" class='image-preview'>
+                <img src="" alt="Image Preview" id="image-preview-image" class='image-preview-image'/>
             </div>
             <label for="photo">Upload Image:</label>
-            <div id="error-image" class = "error"></div>
+            <div id="error-image" class ="error"></div>
             <input type="file" accept="image/*" name="photo" id="photo" onchange="showPreview(event);">          
         </div>
-        <div class = "formBox">
-            <label for="username" > Username: </label> <span id="error-username" class = "error"></span>
-            <input type = "text" id = "username" name="username" placeholder = "What is your nick-name?" onkeyup="usernameExists(event)" required>
+        <div class="form-box">
+            <label for="username" > Username: </label> <span id="error-username" class="error"></span>
+            <input type = "text" id ="username" name="username" placeholder="What is your nick-name?" onkeyup="usernameExists(event)" required>
         </div>
-            <div class = "formBox">
-                <label for="name" > Name: </label> <span id="error-name" class = "error"></span>
-                <input type = "text" id = "name" name="name" placeholder = "What do your humans call you?" required>
+            <div class="form-box">
+                <label for="name" > Name: </label> <span id="error-name" class="error"></span>
+                <input type = "text" id="name" name="name" placeholder="What do your humans call you?" required>
             </div>
-            <div class = "formBox">
-                <label for="breed"> Breed: </label> <span id="error-breed" class = "error"></span>
-                <input type = "text" id = "breed" name="breed" placeholder = "What breed are you?" required>
+            <div class="form-box">
+                <label for="breed"> Breed: </label> <span id="error-breed" class="error"></span>
+                <input type="text" id="breed" name="breed" placeholder="What breed are you?" required>
             </div>
-            <div class = "formBox">
-                <label for="dob"> Date Of Birth: </label> <span id="error-dob" class = "error"></span>
-                <input type = "text" id = "dob" name="dob" placeholder = "When were you born?" onfocus="(this.type='date')" onblur="(this.type='text')" required>
+            <div class="form-box">
+                <label for="dob"> Date Of Birth: </label> <span id="error-dob" class="error"></span>
+                <input type="text" id="dob" name="dob" placeholder="When were you born?" onfocus="(this.type='date')" onblur="(this.type='text')" required>
             </div>
-            <div class = "formBox">
-                <label for="colour"> Colour Of Fur: </label> <span id="error-colour" class = "error"></span>
-                <input type = "text" id = "colour" name="colour" placeholder = "What colour do you think you are?" required>
+            <div class="form-box">
+                <label for="colour"> Colour Of Fur: </label> <span id="error-colour" class="error"></span>
+                <input type="text" id="colour" name="colour" placeholder="What colour do you think you are?" required>
             </div>
-            <div id = "error-message" class = "error"></div>
-            <div id = registerDogButton>
+            <div id="error-message" class="error"></div>
+            <div id=register-dog-button class="register-dog-button">
                 <button id="saveDog">Register Dog</button>
                 
             </div>
@@ -56,8 +55,8 @@
     </section>
 
     <!--Photos on right side-->
-    <section id= "rightPhotos">
-        <img id=poodlePhoto src='photosofdogs/PoodleBlack&White.jpg' alt="Pic Of Poodle">
+    <section id= "right-photos" class='right-photos'>
+        <img id=poodle-photo class='poodle-photo' src='photosofdogs/PoodleBlack&White.jpg' alt="Pic Of Poodle">
     </section>
 </section>
 </body>
