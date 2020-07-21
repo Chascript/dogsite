@@ -10,8 +10,9 @@ const path = require('path');
 const sharp = require('sharp');
 // server running
 const app = express();
-const port = 3003;
-app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
+const PORT = 3003;
+const HOST = '0.0.0.0';
+app.listen(PORT, HOST, () => console.log(`Example app listening at http://localhost:${PORT}`));
 
 // load html
 app.use(express.static('public'));

@@ -61,7 +61,7 @@ const renderDog = (dog) => {
 
 const setup = async () => {
   try {
-    const { data } = await axios.get('http://localhost:3003/dogs'); // change this so it only gives info actually need
+    const { data } = await axios.get('/dogs'); // change this so it only gives info actually need
     // render each dog component...
     data.forEach(renderDog);
   } catch (error) {

@@ -3,3 +3,9 @@
 dogs.json
 
 /public/photosofdogs
+
+.vscode/
+
+package-lock.json
+
+package.json
