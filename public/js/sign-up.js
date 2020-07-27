@@ -127,8 +127,8 @@ const showPreview = (event) => {
     const preview = document.getElementById('image-preview-image'); // to target where the image will be preview
     preview.src = src; // preview the image with styles below
     preview.style.display = 'block';
-    preview.style.maxHeight = '250px';
-    preview.style.maxWidth = '250px';
+    preview.style.maxHeight = '300px';
+    preview.style.maxWidth = '200px';
     preview.style.borderRadius = '50%';
   }
 };
