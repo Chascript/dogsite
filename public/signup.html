@@ -9,27 +9,38 @@
     <title>Dog Creation</title>
 </head>
 <body>
+    <!-- Navigation Bar -->
+    <section id="main-nav"> 
+        <ul>
+            <li>
+            <a href="home.html">Home</a>
+            </li>
+            <li>
+            <a href="signup.html">Sign up</a>
+            </li>
+            <li>
+            <a href="index.html">Voting Gallery</a>
+            </li>
+        </ul>
+    </section>  
+
 <section id="container" class='container'>   
-<!--Photos on left side-->
-    <section id="left-photos" class='left-photos'>
-            <img id=poodle-photo class='poodle-photo' src='photosofdogs/PoodleBlack&White.jpg' alt="Pic Of Poodle">
-    </section>
-<section id="center" class='center'>
-    <form id='form' class='form' action='/upload' method='POST' enctype="multipart/form-data">
-        <h1>Dog Creation</h1>
-    <!--Form for the dog creation-->
-        <div class="form-box">
-            <div id="image-preview" class='image-preview'>
-                <img src="" alt="Image Preview" id="image-preview-image" class='image-preview-image'/>
+    <section id="center" class='center'>
+        <form id='form' class='form' action='/upload' method='POST' enctype="multipart/form-data">
+            <h1>Dog Creation</h1>
+        <!--Form for the dog creation-->
+            <div class="form-box">
+                <div id="image-preview" class='image-preview'>
+                    <img src="" alt="Image Preview" id="image-preview-image" class='image-preview-image'/>
+                </div>
+                <label for="photo">Upload Image:</label>
+                <div id="error-image" class ="error"></div>
+                <input type="file" accept="image/*" name="photo" id="photo" onchange="showPreview(event);">          
             </div>
-            <label for="photo">Upload Image:</label>
-            <div id="error-image" class ="error"></div>
-            <input type="file" accept="image/*" name="photo" id="photo" onchange="showPreview(event);">          
-        </div>
-        <div class="form-box">
-            <label for="username" > Username: </label> <span id="error-username" class="error"></span>
-            <input type = "text" id ="username" name="username" placeholder="What is your nick-name?" onkeyup="usernameExists(event)" required>
-        </div>
+            <div class="form-box">
+                <label for="username" > Username: </label> <span id="error-username" class="error"></span>
+                <input type = "text" id ="username" name="username" placeholder="What is your nick-name?" onkeyup="usernameExists(event)" required>
+            </div>
             <div class="form-box">
                 <label for="name" > Name: </label> <span id="error-name" class="error"></span>
                 <input type = "text" id="name" name="name" placeholder="What do your humans call you?" required>
@@ -49,15 +60,13 @@
             <div id="error-message" class="error"></div>
             <div id=register-dog-button class="register-dog-button">
                 <button id="saveDog">Register Dog</button>
-                
             </div>
         </form>
     </section>
-
-    <!--Photos on right side-->
-    <section id= "right-photos" class='right-photos'>
-        <img id=poodle-photo class='poodle-photo' src='photosofdogs/PoodleBlack&White.jpg' alt="Pic Of Poodle">
-    </section>
 </section>
+<footer>
+    <p class= "footer-text">Oh My Dawg &copy;</p>
+<footer>
+
 </body>
 </html> 

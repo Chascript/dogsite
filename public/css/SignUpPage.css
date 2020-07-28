@@ -5,6 +5,32 @@
  --light: #FFFFFF;
 }
 
+/* Navigation Bar */
+
+#main-nav ul{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    list-style: none;
+    grid-gap: 20px;
+    padding: 0;
+  }
+    
+  #main-nav a{
+    background: var(--primary);
+    color: var(--dark);
+    box-shadow: var(--shadow);
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    text-transform: uppercase;
+    padding: 20px;
+    font-size: 20px;
+  }
+    
+  #main-nav a:hover{
+    background: var(--dark);
+    color: var(--light);
+  }
 .container{
     display:flex;
     justify-content: space-around;
@@ -21,12 +47,16 @@
     padding: 40px;
     flex-wrap: wrap;
     flex: 4 0 auto;
-    overflow-y: scroll;
+}
+.form {
+    display: flex;
+    flex-direction: column;
 }
 
 h1{
     text-decoration: underline;
     justify-content: center;
+    align-self: center;
     padding: 8px;
     font-weight: 400px;
     letter-spacing: .09em;
@@ -41,8 +71,8 @@ h1{
 } 
 
 .image-preview{
-    max-width: 250px;
-    min-height: 250px;
+    height: 300px;
+    width: 200px;
     box-shadow: var(--shadow);
     margin-bottom: 15px;
     border-radius: 50%;
@@ -54,7 +84,8 @@ h1{
 
 .image-preview-image{
     display:none;
-    width: 99%;
+    width: 100%;
+    height: 100%;
 }
 
 .form-box{
@@ -84,18 +115,23 @@ input{
     justify-content: center;
 }
 
-.right-photos .left-photos{
-    display:flex;
-    flex:1 4 auto;
+ footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;;
+    background: var(--dark);
+    color: var(--light);
+    box-shadow: var(--shadow);
+    font-size: 20px;
+    padding: 0;
+    max-width:100%;
+    margin-top: 10px;
 }
-
-.right-photos {
-    transform: scaleX(-1);
-}
-
-.poodle-photo {
-    max-width: 100%;
- }
+    
+.footer-text{
+    justify-content: center;
+    align-content: center;
+} 
 
 @media (max-width:960px){
     h1{
@@ -122,15 +158,6 @@ input{
         justify-content: center;
         height: max-content;
     }
-
-    .poodle-photo{
-        height: 400px;  
-    }
-   
-   .left-photos{
-       display: flex;
-       justify-content: center;
-   }
 
    .center{
        overflow-y: auto;

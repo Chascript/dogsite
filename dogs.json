@@ -1,1 +1,29 @@
-{}
+{
+  "Poodle-Power": {
+    "username": "Poodle-Power",
+    "name": "Manson",
+    "breed": "Miniature Poodle",
+    "dob": "2019-01-08",
+    "colour": "Black",
+    "votes": 0,
+    "imageFileName": "photo-1595932275100.jpg"
+  },
+  "Dobby": {
+    "username": "Dobby",
+    "name": "Dobby",
+    "breed": "Miniature Poodle",
+    "dob": "9999-09-09",
+    "colour": "Cream",
+    "votes": 0,
+    "imageFileName": "photo-1595932368703.jpg"
+  },
+  "manson tester": {
+    "username": "manson tester",
+    "name": "verticle image",
+    "breed": "testin",
+    "dob": "0001-01-01",
+    "colour": "test",
+    "votes": 1,
+    "imageFileName": "photo-1595932912642.jpg"
+  }
+}
