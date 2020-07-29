@@ -25,10 +25,12 @@ const dogs = JSON.parse(fs.readFileSync('dogs.json'));// loads the data file
 
 // Saves
 const saveData = () => {
-  function finished(err) {
-    if (err) {
-      console.log('Error saving file', err);
-      return;
+  function finished(error) {
+    if (error) {
+      // eslint-disable-next-line no-console
+      console.error(error);
+      // eslint-disable-next-line no-useless-return
+      return; // if error occurs return prevents data saving
     }
   }
   // eslint-disable-next-line max-len
@@ -68,6 +70,7 @@ const resize = (image, w, h) => {
 app.post('/dog', upload.single('photo'), (req, res) => {
   const newDog = {
     username: req.body.username,
+    email: req.body.email,
     name: req.body.name,
     breed: req.body.breed,
     dob: req.body.dob,

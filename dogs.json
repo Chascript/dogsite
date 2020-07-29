@@ -25,5 +25,15 @@
     "colour": "test",
     "votes": 1,
     "imageFileName": "photo-1595932912642.jpg"
+  },
+  "testing email": {
+    "username": "testing email",
+    "email": "testing email saves@",
+    "name": "testing",
+    "breed": "testing",
+    "dob": "0001-01-01",
+    "colour": "testing",
+    "votes": 3,
+    "imageFileName": "photo-1596021706001.jpg"
   }
 }

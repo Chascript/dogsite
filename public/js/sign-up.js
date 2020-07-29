@@ -36,6 +36,7 @@ const signup = async (ev) => {
   const errorMessage = document.getElementById('error-message');
   const errorImage = document.getElementById('error-image');
   const errorUsername = document.getElementById('error-username');
+  const errorEmail = document.getElementById('error-email');
   const errorName = document.getElementById('error-name');
   const errorBreed = document.getElementById('error-breed');
   const errorDob = document.getElementById('error-dob');
@@ -43,6 +44,7 @@ const signup = async (ev) => {
   // Values
   const file = document.getElementById('photo');
   const username = document.getElementById('username');
+  const email = document.getElementById('email');
   const name = document.getElementById('name');
   const breed = document.getElementById('breed');
   const dob = document.getElementById('dob');
@@ -66,6 +68,14 @@ const signup = async (ev) => {
     messages.push('usernameexists');
   } else {
     form.set('username', username.value);
+  }
+  // email
+  if (email.value === '' || email.value == null) {
+    errorEmail.innerText = 'Email is required';
+    messages.push('email');
+  } else {
+    errorEmail.innerText = '';
+    form.set('email', email.value);
   }
   // name
   if (name.value === '' || name.value == null) {

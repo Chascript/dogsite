@@ -24,11 +24,17 @@
         </ul>
     </section>  
 
-<section id="container" class='container'>   
+<section id="container" class='container'> 
+    <!--photos on left (photos are planning to be drawn from database in future of uploaded dogs)-->  
+    <div class = "img">
+        <img src="photosofdogs/PoodleBlack&White.jpg" alt="Photo of poodle" class = "poodles-left">
+        <img src="photosofdogs/PoodleBlack&White.jpg" alt="Photo of poodle" class = "poodles-left">
+    </div>
     <section id="center" class='center'>
-        <form id='form' class='form' action='/upload' method='POST' enctype="multipart/form-data">
-            <h1>Dog Creation</h1>
+        <h1>Dog Creation</h1>        
         <!--Form for the dog creation-->
+        <form id='form' class='form' action='/upload' method='POST' enctype="multipart/form-data">
+        
             <div class="form-box">
                 <div id="image-preview" class='image-preview'>
                     <img src="" alt="Image Preview" id="image-preview-image" class='image-preview-image'/>
@@ -40,6 +46,10 @@
             <div class="form-box">
                 <label for="username" > Username: </label> <span id="error-username" class="error"></span>
                 <input type = "text" id ="username" name="username" placeholder="What is your nick-name?" onkeyup="usernameExists(event)" required>
+            </div>
+            <div class="form-box">
+                <label for="email" > Email: </label> <span id="error-email" class="error"></span>
+                <input type = "text" id ="email" name="email" placeholder="Your humans email address?"required>
             </div>
             <div class="form-box">
                 <label for="name" > Name: </label> <span id="error-name" class="error"></span>
@@ -63,6 +73,12 @@
             </div>
         </form>
     </section>
+        <!--photos on right (photos are planning to be drawn from database in future of uploaded dogs)-->  
+        <div class = "img">
+            <img src="photosofdogs/PoodleBlack&White.jpg" alt="Photo of poodle" class = "poodles-right">
+            <img src="photosofdogs/PoodleBlack&White.jpg" alt="Photo of poodle" class = "poodles-right">
+        </div>
+    
 </section>
 <footer>
     <p class= "footer-text">Oh My Dawg &copy;</p>
