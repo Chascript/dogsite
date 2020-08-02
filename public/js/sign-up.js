@@ -131,14 +131,12 @@ const signup = async (ev) => {
 window.onload = () => {
   document.getElementById('saveDog').addEventListener('click', signup);
 };
+
 const showPreview = (event) => {
   if (event.target.files.length > 0) { // has user select image file?
     const src = URL.createObjectURL(event.target.files[0]); // to target the selected image
     const preview = document.getElementById('image-preview-image'); // to target where the image will be preview
     preview.src = src; // preview the image with styles below
     preview.style.display = 'block';
-    preview.style.maxHeight = '300px';
-    preview.style.maxWidth = '200px';
-    preview.style.borderRadius = '50%';
   }
 };

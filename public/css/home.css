@@ -44,11 +44,12 @@ body {
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  padding-left: 20px;
+  padding: 20px;
   box-shadow: var(--shadow);
   background: var(--primary);
   flex-wrap:wrap;
   opacity: 1;
+
 }
 
 .welcome{

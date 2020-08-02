@@ -79,7 +79,7 @@ app.post('/dog', upload.single('photo'), (req, res) => {
     imageFileName: req.file.filename,
   };
 
-  resize(newDog.imageFileName, 200, 300); // w x h
+  resize(newDog.imageFileName, 800, 1000); // w x h
 
   dogs[newDog.username] = newDog;
   // save the data...

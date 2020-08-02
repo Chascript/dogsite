@@ -1,39 +1,32 @@
 {
+  "ioio": {
+    "username": "ioio",
+    "email": "ioi",
+    "name": "iooi",
+    "breed": "ioioio",
+    "dob": "275760-01-09",
+    "colour": "ioio",
+    "votes": 0,
+    "imageFileName": "photo-1596392543209.jpg"
+  },
   "Poodle-Power": {
     "username": "Poodle-Power",
-    "name": "Manson",
-    "breed": "Miniature Poodle",
-    "dob": "2019-01-08",
-    "colour": "Black",
+    "email": "jjji",
+    "name": "uiuiou",
+    "breed": "uiouoi",
+    "dob": "275760-08-07",
+    "colour": "uiuio",
     "votes": 0,
-    "imageFileName": "photo-1595932275100.jpg"
+    "imageFileName": "photo-1596392673395.jpg"
   },
-  "Dobby": {
-    "username": "Dobby",
-    "name": "Dobby",
-    "breed": "Miniature Poodle",
-    "dob": "9999-09-09",
-    "colour": "Cream",
+  "jhj": {
+    "username": "jhj",
+    "email": "jhjhj",
+    "name": "hjjhjh",
+    "breed": "hjhjh",
+    "dob": "8787-07-08",
+    "colour": "uui",
     "votes": 0,
-    "imageFileName": "photo-1595932368703.jpg"
-  },
-  "manson tester": {
-    "username": "manson tester",
-    "name": "verticle image",
-    "breed": "testin",
-    "dob": "0001-01-01",
-    "colour": "test",
-    "votes": 1,
-    "imageFileName": "photo-1595932912642.jpg"
-  },
-  "testing email": {
-    "username": "testing email",
-    "email": "testing email saves@",
-    "name": "testing",
-    "breed": "testing",
-    "dob": "0001-01-01",
-    "colour": "testing",
-    "votes": 3,
-    "imageFileName": "photo-1596021706001.jpg"
+    "imageFileName": "photo-1596396773323.jpg"
   }
 }
