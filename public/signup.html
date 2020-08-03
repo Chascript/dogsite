@@ -1,88 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://unpkg.com/axios/dist/axios.min.js" ></script>
-    <link rel="stylesheet" href="css/SignUpPage.css">
-    <script type="text/javascript" src="js/sign-up.js" ></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dog Creation</title>
+  <script src="https://unpkg.com/axios/dist/axios.min.js" ></script>
+  <link rel="stylesheet" href="css/SignUpPage.css">
+  <script type="text/javascript" src="js/sign-up.js" ></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dog Creation</title>
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <section id="main-nav"> 
-        <ul>
-            <li>
-            <a href="home.html">Home</a>
-            </li>
-            <li>
-            <a href="signup.html">Sign up</a>
-            </li>
-            <li>
-            <a href="index.html">Voting Gallery</a>
-            </li>
-        </ul>
-    </section>  
+<!-- Navigation Bar -->
+  <section class="main-nav"> 
+    <ul>
+      <li>
+        <a href="home.html">Home</a>
+      </li>
+      <li>
+        <a href="signup.html">Sign up</a>
+      </li>
+      <li>
+        <a href="index.html">Voting Gallery</a>
+      </li>
+    </ul>
+  </section>  
 
-<section id="container" class='container'> 
+  <section id="container" class='container'> 
     <!--photos on left (photos are planning to be drawn from database in future of uploaded dogs)-->  
     <div class = "img">
-        <img src="photosofdogs/PoodleBlack&White.jpg" alt="Photo of poodle" class = "poodles-left">
-        <img src="photosofdogs/PoodleBlack&White.jpg" alt="Photo of poodle" class = "poodles-left">
+      <img src="photosofdogs/PoodleBlack&White.jpg" alt="Photo of poodle" class = "poodles-left">
+      <img src="photosofdogs/PoodleBlack&White.jpg" alt="Photo of poodle" class = "poodles-left">
     </div>
     <section id="center" class='center'>
-        <h1>Dog Creation</h1>        
-        <!--Form for the dog creation-->
-        <form id='form' class='form' action='/upload' method='POST' enctype="multipart/form-data">
-        
-            <div class="form-box">
-                <div id="image-preview" class='image-preview'>
-                    <img src="" alt="Image Preview" id="image-preview-image" class='image-preview-image'/>
-                </div>
-                <label for="photo">Upload Image:</label>
-                <div id="error-image" class ="error"></div>
-                <input type="file" accept="image/*" name="photo" id="photo" onchange="showPreview(event);">          
-            </div>
-            <div class="form-box">
-                <label for="username" > Username: </label> <span id="error-username" class="error"></span>
-                <input type = "text" id ="username" name="username" placeholder="What is your nick-name?" onkeyup="usernameExists(event)" required>
-            </div>
-            <div class="form-box">
-                <label for="email" > Email: </label> <span id="error-email" class="error"></span>
-                <input type = "text" id ="email" name="email" placeholder="Your humans email address?" required>
-            </div>
-            <div class="form-box">
-                <label for="name" > Name: </label> <span id="error-name" class="error"></span>
-                <input type = "text" id="name" name="name" placeholder="What do your humans call you?" required>
-            </div>
-            <div class="form-box">
-                <label for="breed"> Breed: </label> <span id="error-breed" class="error"></span>
-                <input type="text" id="breed" name="breed" placeholder="What breed are you?" required>
-            </div>
-            <div class="form-box">
-                <label for="dob"> Date Of Birth: </label> <span id="error-dob" class="error"></span>
-                <input type="text" id="dob" name="dob" placeholder="When were you born?" onfocus="(this.type='date')" onblur="(this.type='text')" required>
-            </div>
-            <div class="form-box">
-                <label for="colour"> Colour Of Fur: </label> <span id="error-colour" class="error"></span>
-                <input type="text" id="colour" name="colour" placeholder="What colour do you think you are?" required>
-            </div>
-            <div id="error-message" class="error"></div>
-            <div id=register-dog-button class="register-dog-button">
-                <button id="saveDog">Register Dog</button>
-            </div>
-        </form>
-    </section>
-        <!--photos on right (photos are planning to be drawn from database in future of uploaded dogs)-->  
-        <div class = "img">
-            <img src="photosofdogs/PoodleBlack&White.jpg" alt="Photo of poodle" class = "poodles-right">
-            <img src="photosofdogs/PoodleBlack&White.jpg" alt="Photo of poodle" class = "poodles-right">
+      <h1>Dog Creation</h1>        
+      <!--Form for the dog creation-->
+      <form id='form' class='form' action='/upload' method='POST' enctype="multipart/form-data">
+      
+        <div class="form-box">
+          <div id="image-preview" class='image-preview'>
+            <img src="" alt="Image Preview" id="image-preview-image" class='image-preview-image'/>
+          </div>
+          <label for="photo">Upload Image:</label>
+          <div id="error-image" class ="error"></div>
+          <input type="file" accept="image/*" name="photo" id="photo" onchange="showPreview(event);">          
         </div>
-    
-</section>
-<footer>
+        <div class="form-box">
+          <label for="username" > Username: </label> <span id="error-username" class="error"></span>
+          <input type = "text" id ="username" name="username" placeholder="What is your nick-name?" onkeyup="usernameExists(event)" required>
+        </div>
+        <div class="form-box">
+          <label for="email" > Email: </label> <span id="error-email" class="error"></span>
+          <input title="Email is not required however if entered will ensure you get to choose your preferred 
+username out of the ones used to create your dogs, 
+also by entering your email you agree to be contacted by ohmydawg through this method" type = "text" id ="email" class="email" name="email" placeholder="Your humans email address?" onkeyup="validateEmail(event)">
+        </div>
+        <div class="form-box">
+          <label for="name" > Name: </label> <span id="error-name" class="error"></span>
+          <input type = "text" id="name" name="name" placeholder="What do your humans call you?" required>
+        </div>
+        <div class="form-box">
+          <label for="breed"> Breed: </label> <span id="error-breed" class="error"></span>
+          <input type="text" id="breed" name="breed" placeholder="What breed are you?" required>
+        </div>
+        <div class="form-box">
+          <label for="dob"> Date Of Birth: </label> <span id="error-dob" class="error"></span>
+          <input type="text" id="dob" name="dob" placeholder="When were you born?" onfocus="(this.type='date')" onblur="(this.type='text')" required>
+        </div>
+        <div class="form-box">
+          <label for="colour"> Colour Of Fur: </label> <span id="error-colour" class="error"></span>
+          <input type="text" id="colour" name="colour" placeholder="What colour do you think you are?" required>
+        </div>
+        <div id="error-message" class="error"></div>
+        <div id=register-dog-button class="register-dog-button">
+          <button id="saveDog">Register Dog</button>
+        </div>
+      </form>
+    </section>
+    <!--photos on right (photos are planning to be drawn from database in future of uploaded dogs)-->  
+    <div class = "img">
+      <img src="photosofdogs/PoodleBlack&White.jpg" alt="Photo of poodle" class = "poodles-right">
+      <img src="photosofdogs/PoodleBlack&White.jpg" alt="Photo of poodle" class = "poodles-right">
+    </div>
+  </section>
+  <footer>
     <p class= "footer-text">Oh My Dawg &copy;</p>
-<footer>
-
+  <footer>
 </body>
 </html> 

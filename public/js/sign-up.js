@@ -24,10 +24,34 @@ const usernameExists = async () => {
     }
   } catch (error) {
     // eslint-disable-next-line no-console
-    console.err0r(error);
+    console.error(error);
   }
   return result;
 };
+
+const validateEmail = async () => {
+  const message = document.getElementById('error-email');
+  const email = document.getElementById('email').value;
+  const pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+  if (email.match(pattern)) {
+    message.innerText = 'Email Address Is Valid';
+    message.classList.remove('error');
+    message.classList.add('valid');
+    result = true
+  } else {
+    message.innerText = 'Email not valid';
+    message.classList.add('error');
+    message.classList.remove('valid');
+    result = false
+  }
+  if (email === '') {
+    message.classList.remove('error');
+    message.classList.remove('valid');
+    message.innerText = '';
+  }
+  return result
+};
+
 const signup = async (ev) => {
   ev.preventDefault();
   // fields that require inputs
@@ -36,7 +60,6 @@ const signup = async (ev) => {
   const errorMessage = document.getElementById('error-message');
   const errorImage = document.getElementById('error-image');
   const errorUsername = document.getElementById('error-username');
-  const errorEmail = document.getElementById('error-email');
   const errorName = document.getElementById('error-name');
   const errorBreed = document.getElementById('error-breed');
   const errorDob = document.getElementById('error-dob');
@@ -71,11 +94,11 @@ const signup = async (ev) => {
   }
   // email
   if (email.value === '' || email.value == null) {
-    errorEmail.innerText = 'Email is required';
-    messages.push('email');
-  } else {
-    errorEmail.innerText = '';
+    form.set('email', 'User left blank');
+  } else if (await validateEmail()) {
     form.set('email', email.value);
+  } else {
+    messages.push('emailinvalid');
   }
   // name
   if (name.value === '' || name.value == null) {
@@ -109,6 +132,8 @@ const signup = async (ev) => {
     errorColour.innerText = '';
     form.set('colour', colour.value);
   }
+
+  console.log(messages);
   // error message
   if (messages.length > 0) {
     errorMessage.innerText = 'Please correct fields';

@@ -1,32 +1,12 @@
 {
-  "ioio": {
-    "username": "ioio",
-    "email": "ioi",
-    "name": "iooi",
-    "breed": "ioioio",
-    "dob": "275760-01-09",
-    "colour": "ioio",
-    "votes": 0,
-    "imageFileName": "photo-1596392543209.jpg"
-  },
   "Poodle-Power": {
     "username": "Poodle-Power",
-    "email": "jjji",
-    "name": "uiuiou",
-    "breed": "uiouoi",
-    "dob": "275760-08-07",
-    "colour": "uiuio",
+    "email": "ohmydawg.website@gmail.com",
+    "name": "Manson",
+    "breed": "Miniature Poodle",
+    "dob": "2019-01-08",
+    "colour": "Black",
     "votes": 0,
-    "imageFileName": "photo-1596392673395.jpg"
-  },
-  "jhj": {
-    "username": "jhj",
-    "email": "jhjhj",
-    "name": "hjjhjh",
-    "breed": "hjhjh",
-    "dob": "8787-07-08",
-    "colour": "uui",
-    "votes": 0,
-    "imageFileName": "photo-1596396773323.jpg"
+    "imageFileName": "photo-1596453131616.jpg"
   }
 }
