@@ -93,12 +93,15 @@ app.get('/voteData', (request, response) => response.send(dogs));
 
 // list all the dogs in our data
 app.get('/dogs', (req, res) => {
-  const dogIds = Object.keys(dogs);
-  const a = dogIds.map((dogId) => dogs[dogId]);
-
-  return res.send(a);
+  const data = Object.keys(dogs);
+  const indexDetails = data.map((dogId) => [
+    dogs[dogId].name,
+    dogs[dogId].breed,
+    dogs[dogId].imageFileName,
+    dogs[dogId].username,
+    dogs[dogId].votes]);
+  return res.send(indexDetails);
 });
-
 // list all usernames
 app.get('/dogs/:username/exist', (req, res) => {
   const chosenUsername = req.params.username;

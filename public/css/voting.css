@@ -98,18 +98,18 @@ footer{
 }
     
 .footer-text{
-    justify-content: center;
-    align-content: center;
+  justify-content: center;
+  align-content: center;
 } 
   
 @media (max-width:960px){
-    #main-nav ul{
-        grid-template-columns: repeat(2,1fr);
-    }
+  .main-nav ul{
+    grid-template-columns: repeat(2,1fr);
+  }
 }
 
 @media (max-width:726px){
-    #main-nav ul{
-        grid-template-columns: repeat(1,1fr);
-    }
+  .main-nav ul{
+    grid-template-columns: repeat(1,1fr);
+  }
 }

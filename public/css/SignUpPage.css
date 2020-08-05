@@ -130,8 +130,8 @@ input{
     margin-top: 5px;
 }
 
-input[type=text]:focus{
-    border: 3px solid #555;
+input[type=text]:hover{
+    border: 2px solid #555;
 }
 
 ::placeholder{
@@ -175,7 +175,7 @@ input[type=text]:focus{
 } 
 
 @media (max-width:960px){
-    #main-nav ul{
+    .main-nav ul{
         grid-template-columns: repeat(2,1fr);
     }
     .poodles-left{
@@ -186,7 +186,7 @@ input[type=text]:focus{
 
 @media (max-width:726px){
 
-    #main-nav ul{
+    .main-nav ul{
         grid-template-columns: repeat(1,1fr);
     }
     

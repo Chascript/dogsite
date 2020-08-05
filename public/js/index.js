@@ -18,7 +18,7 @@ const renderDog = (dog) => {
   dogContainer.appendChild(dogPhotoContainer); // dogPhotoContainer is now a child of dogContainer
   // photo-of-dog
   const dogPhoto = document.createElement('img'); // creates dogPhoto
-  dogPhoto.src = `/photosofdogs/${dog.imageFileName}`; // sets the correct image
+  dogPhoto.src = `/photosofdogs/${dog[2]}`; // sets the correct image
   dogPhoto.setAttribute('id', 'photo-of-dog-above'); // sets the id for dogPhoto
   dogPhoto.setAttribute('class', 'photo-of-dog-above'); // sets the class for dogPhoto
   dogPhotoContainer.appendChild(dogPhoto); // dogPhoto is now a child of dogPhotoContainer
@@ -32,22 +32,22 @@ const renderDog = (dog) => {
   dogNameContainer.setAttribute('id', 'dog-name'); // sets the id for dogNameContainer
   dogNameContainer.setAttribute('class', 'dog-name'); // sets the class for dogNameContainer
   // creates nameNode (the number of votes for dog)
-  const dogNameNode = document.createTextNode(dog.name); // Creates dogNameText with correct text node
+  const dogNameNode = document.createTextNode(dog[0]); // Creates dogNameText with correct text node
   dogNameContainer.appendChild(dogNameNode); // dogNameText is a child of dogNameContainer
   // breed
   const dogBreedContainer = document.createElement('div'); // creates dogBreedContainer
   dogBreedContainer.setAttribute('id', 'dog-breed'); // sets the id for dogBreedContainer
-  const dogBreedText = document.createTextNode(dog.breed); // Creates dogBreedText with correct text node
+  const dogBreedText = document.createTextNode(dog[1]); // Creates dogBreedText with correct text node
   dogBreedContainer.appendChild(dogBreedText); // dogBreedText is a child of dogNameContainer
   // dog Details
   votingContainer.appendChild(dogNameContainer); // dogNameContainer is a child of votingContainer
   votingContainer.appendChild(dogBreedContainer); // dogBreedContainer is a child of votingContainer
   // votes
   const voteNumber = document.createElement('p'); // creates voteNumber
-  voteNumber.setAttribute('id', dog.username); // sets the id for voteNumber
+  voteNumber.setAttribute('id', dog[3]); // sets the id for voteNumber
   voteNumber.setAttribute('class', 'total-votes'); // sets the class for voteNumber
   // creates voteNode (the number of votes for dog)
-  const voteNode = document.createTextNode(`Total Votes = ${dog.votes}`);
+  const voteNode = document.createTextNode(`Total Votes = ${dog[4]}`);
   voteNumber.appendChild(voteNode); // voteNode is a child of voteNumber
   votingContainer.appendChild(voteNumber); // voteNumber is a child of votingConatiner
   // button
@@ -56,7 +56,7 @@ const renderDog = (dog) => {
   voteForDogAbove.textContent = 'Vote For Above Dog'; // adds a set text for voteForDogAbove
   votingContainer.appendChild(voteForDogAbove); // voteForDogAbove is a child of votingConatiner
   // the event listener (within a function to prevent broswer from automatically clicking button when rendered)
-  voteForDogAbove.addEventListener('click', () => { voteForDog(dog.username, dog.name); }, false);
+  voteForDogAbove.addEventListener('click', () => { voteForDog(dog[3], dog[0]); }, false);
 };
 
 const setup = async () => {

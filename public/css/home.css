@@ -78,51 +78,13 @@ footer{
 
 
 @media (max-width:960px){
-    #main-nav ul{
+  .main-nav ul{
         grid-template-columns: repeat(2,1fr);
-    }
+  }
 }
 
 @media (max-width:726px){
-    #main-nav ul{
+  .main-nav ul{
         grid-template-columns: repeat(1,1fr);
-    }
-}
-
-/* Loader*/
-
-.loader{
-  display: flex;
-  justify-content: center;
-  align-items:center;
-}
-
-.loader > span{
-  display: inline-block;
-  background-color: black;
-  width: 16px;
-  height:0px;
-  border-radius: 50%;
-  margin: 0 8px;
-  transform: translate3d(0);
-  animation: bounce 0.6s infinite alternate;
-}
-
-.loader > span:nth-child(2){
-  background-color: grey;
-  animation-delay: 0.2s;
-  
-}
-
-.loader > span:nth-child(3){
-  animation-delay: 0.4s;
-}
-
-
-@keyframes bounce{
-  to{
-    width: 16px;
-    height: 16px;
-    transform: translate3d(0, -16px, 0);
   }
 }
