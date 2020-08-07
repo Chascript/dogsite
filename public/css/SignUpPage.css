@@ -200,3 +200,23 @@ input[type=text]:hover{
         display: none;
     }
 }
+
+/*All Mobile Devices*/
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .main-nav ul{
+        grid-template-columns: repeat(1,1fr);
+    }
+    
+    .container{
+        flex-direction: column-reverse;
+        justify-content: center;
+        height: max-content;
+    }
+
+    .poodles-right{
+        display: none;
+    }
+}
