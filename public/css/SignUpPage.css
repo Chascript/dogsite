@@ -213,7 +213,6 @@ input[type=text]:hover{
     .container{
         flex-direction: column-reverse;
         justify-content: center;
-        height: max-content;
     }
 
     .img{
