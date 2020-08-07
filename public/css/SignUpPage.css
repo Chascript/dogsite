@@ -216,13 +216,8 @@ input[type=text]:hover{
         height: max-content;
     }
 
-    .poodles-left{
+    .img{
         display:none;
-    }
-
-    .poodles-right{
-        display: none;
-    }
 }
 
 /*Tablets*/
