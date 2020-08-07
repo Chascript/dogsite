@@ -205,7 +205,7 @@ input[type=text]:hover{
 @media only screen 
   and (min-device-width: 320px) 
   and (max-device-width: 480px)
-  and (-webkit-min-device-pixel-ratio: 2) {
+  and (-webkit-min-device-pixel-ratio: 4) {
     .main-nav ul{
         grid-template-columns: repeat(1,1fr);
     }
@@ -218,7 +218,6 @@ input[type=text]:hover{
 
     .poodles-left{
         display:none;
-        margin: 0 auto;
     }
 
     .poodles-right{
@@ -228,8 +227,8 @@ input[type=text]:hover{
 
 /*Tablets*/
 @media only screen
- and (max-device-width:960px)
- and (min-device-width:730px) {
+ and (max-device-width:1026px)
+ and (min-device-width:600px) {
     .main-nav ul{
       grid-template-columns: repeat(2,1fr);
     }
