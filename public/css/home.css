@@ -88,3 +88,21 @@ footer{
         grid-template-columns: repeat(1,1fr);
   }
 }
+
+/*All Mobile Devices*/
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+  .main-nav ul{
+    grid-template-columns: repeat(1,1fr);
+  }
+}
+/*Tablets*/
+@media only screen
+ and (max-device-width:960px)
+ and (min-device-width:730px) {
+    .main-nav ul{
+      grid-template-columns: repeat(2,1fr);
+    }
+}

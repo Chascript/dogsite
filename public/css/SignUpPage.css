@@ -216,6 +216,30 @@ input[type=text]:hover{
         height: max-content;
     }
 
+    .poodles-left{
+        display:none;
+        margin: 0 auto;
+    }
+
+    .poodles-right{
+        display: none;
+    }
+}
+
+/*Tablets*/
+@media only screen
+ and (max-device-width:960px)
+ and (min-device-width:730px) {
+    .main-nav ul{
+      grid-template-columns: repeat(2,1fr);
+    }
+
+    .container{
+        flex-direction: column-reverse;
+        justify-content: center;
+        height: max-content;
+    }
+
     .poodles-right{
         display: none;
     }
