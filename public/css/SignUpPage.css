@@ -219,7 +219,7 @@ input[type=text]:hover{
 }
 
 /*Tablets*/
-@media only screen
+@media screen
  and (max-device-width:1026px)
  and (min-device-width:600px) {
     .main-nav ul{
