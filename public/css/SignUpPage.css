@@ -208,10 +208,6 @@ input[type=text]:hover{
         grid-template-columns: repeat(1,1fr);
     }
     
-    .container {
-        justify-content: center;
-    }
-
     .img{
         display:none;
     }
