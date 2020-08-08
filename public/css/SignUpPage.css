@@ -210,13 +210,13 @@ input[type=text]:hover{
         grid-template-columns: repeat(1,1fr);
     }
     
-    .container{
-        flex-direction: column-reverse;
+    .container {
         justify-content: center;
     }
 
     .img{
         display:none;
+    }
 }
 
 /*Tablets*/
@@ -236,4 +236,4 @@ input[type=text]:hover{
     .poodles-right{
         display: none;
     }
-}
+ }

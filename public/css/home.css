@@ -6,11 +6,6 @@
   --background: #DCDCDC;
 }
 
-body {
-  transition: opacity 2s ease-in;
-  background: var(--background)
-}
-
 /* Navigation Bar */
 
 .main-nav ul{
