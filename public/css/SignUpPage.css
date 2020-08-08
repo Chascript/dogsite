@@ -202,8 +202,7 @@ input[type=text]:hover{
 }
 
 /*All Mobile Devices*/
-@media only screen 
-  and (min-device-width: 320px) 
+@media screen  
   and (max-device-width: 480px)
   and (-webkit-min-device-pixel-ratio: 2) {
     .main-nav ul{
