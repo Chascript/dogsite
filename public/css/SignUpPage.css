@@ -203,8 +203,7 @@ input[type=text]:hover{
 
 /*All Mobile Devices*/
 @media screen  
-  and (max-device-width: 480px)
-  and (-webkit-min-device-pixel-ratio: 2) {
+  and (max-device-width: 480px) {
     .main-nav ul{
         grid-template-columns: repeat(1,1fr);
     }
