@@ -1,9 +1,10 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable no-undef */
 // check if username exists
 const usernameExists = async () => {
   const message = document.getElementById('error-username');
   const username = document.getElementById('username').value;
-  if (username.length === 0) {
+  if (username.value === '') {
     message.innerText = 'Username is required!';
     message.style.color = '#ff0000';
     return;
@@ -37,19 +38,19 @@ const validateEmail = async () => {
     message.innerText = 'Email Address Is Valid';
     message.classList.remove('error');
     message.classList.add('valid');
-    result = true
+    result = true;
   } else {
     message.innerText = 'Email not valid';
     message.classList.add('error');
     message.classList.remove('valid');
-    result = false
+    result = false;
   }
   if (email === '') {
     message.classList.remove('error');
     message.classList.remove('valid');
     message.innerText = '';
   }
-  return result
+  return result;
 };
 
 const signup = async (ev) => {
