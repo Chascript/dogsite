@@ -1,11 +1,9 @@
 /node_modules
 
-dogs.json
-
 /public/photosofdogs
 
 .vscode/
 
-package-lock.json
+/package-lock.json
 
-package.json
+/package.json

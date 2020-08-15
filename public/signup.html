@@ -39,8 +39,7 @@
           <div id="image-preview" class='image-preview'>
             <img src="" alt="Image Preview" id="image-preview-image" class='image-preview-image'/>
           </div>
-          <label for="photo">Upload Image:</label>
-          <div id="error-image" class ="error"></div>
+          <label for="photo">Upload Image:</label><span id="error-image" class ="error"></span>
           <input type="file" accept="image/*" name="photo" id="photo" onchange="showPreview(event);">          
         </div>
         <div class="form-box">
@@ -59,8 +58,8 @@ also by entering your email you agree to be contacted by ohmydawg through this m
         </div>
         <div class="form-box">
           <label for="breed"> Breed: </label> <span id="error-breed" class="error"></span>
-          <select name="breed" id="breed"required>
-            <option value="">What breed are you?</option>
+          <select name="breed" id="breed"required class="breed">
+            <option class="breed" value="">What breed are you...?</option>
           </select>
         </div>
         <div class="form-box">
@@ -69,11 +68,13 @@ also by entering your email you agree to be contacted by ohmydawg through this m
         </div>
         <div class="form-box">
           <label for="colour"> Colour Of Fur: </label> <span id="error-colour" class="error"></span>
-          <input type="text" id="colour" name="colour" placeholder="What colour do you think you are?" required>
+          <input type="text" id="colour" name="colour" placeholder="What colour are you?" required>
         </div>
-        <div id="error-message" class="error"></div>
-        <div id=register-dog-button class="register-dog-button">
-          <button id="saveDog">Register Dog</button>
+        <div class="form-box">
+          <div id="error-message" class="error"></div>
+          <div id=register-dog-button>
+            <button id="saveDog" class="register-dog-button">Register Dog</button>
+          </div>
         </div>
       </form>
     </section>

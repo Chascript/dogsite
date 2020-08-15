@@ -172,10 +172,12 @@ const options = async () => {
     const breeds = response.data[i];
     const newOption = document.createElement('option');
     const optionText = document.createTextNode(breeds);
+    
     // set option text
     newOption.appendChild(optionText);
     // and option value
     newOption.setAttribute('value', breeds);
+    newOption.setAttribute('class', 'breed');
     selectBox.appendChild(newOption);
   }
 };
