@@ -22,6 +22,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const dogs = JSON.parse(fs.readFileSync('dogs.json'));// loads the data file
+const breeds = JSON.parse(fs.readFileSync('breeds.json')); // loads breeds file
 
 // Saves
 const saveData = () => {
@@ -123,4 +124,10 @@ app.get('/dog/:username/:name/vote', (req, res) => {
   } else {
     res.send(`${name} doesn't exist under ${username}`);
   }
+});
+
+// all breeds
+app.get('/dog/breeds', (request, response) => {
+  const data = Object.values(breeds);
+  response.send(data[0]);
 });

@@ -134,7 +134,6 @@ const signup = async (ev) => {
     form.set('colour', colour.value);
   }
 
-  console.log(messages);
   // error message
   if (messages.length > 0) {
     errorMessage.innerText = 'Please correct fields';
@@ -153,10 +152,9 @@ const signup = async (ev) => {
   window.location.assign('index.html');
   document.getElementById('form').reset();
 };
+
 // wait for the document to load)
-window.onload = () => {
-  document.getElementById('saveDog').addEventListener('click', signup);
-};
+
 
 const showPreview = (event) => {
   if (event.target.files.length > 0) { // has user select image file?
@@ -165,4 +163,24 @@ const showPreview = (event) => {
     preview.src = src; // preview the image with styles below
     preview.style.display = 'block';
   }
+};
+
+const options = async () => {
+  const selectBox = document.querySelector('#breed');
+  const response = await axios.get('/dog/breeds');
+  for (i = 0; i < response.data.length; i += 1) {
+    const breeds = response.data[i];
+    const newOption = document.createElement('option');
+    const optionText = document.createTextNode(breeds);
+    // set option text
+    newOption.appendChild(optionText);
+    // and option value
+    newOption.setAttribute('value', breeds);
+    selectBox.appendChild(newOption);
+  }
+};
+
+window.onload = () => {
+  document.getElementById('saveDog').addEventListener('click', signup);
+  options();
 };

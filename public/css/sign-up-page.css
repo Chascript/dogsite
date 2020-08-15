@@ -124,17 +124,28 @@ h1{
     padding: 10px;
 }
 
-input{
+input {
     max-width: 100vw;
     width: 200px;
     margin-top: 5px;
 }
 
-input[type=text]:hover{
+select{
+    max-width: 100vw;
+    width: 200px;
+    margin-top: 5px;
+}
+
+
+select:hover{
     border: 2px solid #555;
 }
 
-::placeholder{
+input[type=text]:hover {
+    border: 2px solid #555;
+}
+
+::placeholder {
     color:var(--dark);
     font-size: 13px;
     text-align: center;
