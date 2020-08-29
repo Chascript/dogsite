@@ -16,11 +16,13 @@ const usernameExists = async () => {
     // retrieve the result (true or false)
     if (response.data) {
       message.innerText = `${username} is already in use`;
-      message.style.color = '#ff0000';
+      message.classList.add('error');
+      message.classList.remove('valid');
       result = true;
     } else {
       message.innerText = `${username} availible`;
-      message.style.color = '#119100';
+      message.classList.remove('error');
+      message.classList.add('valid');
       result = false;
     }
   } catch (error) {
@@ -46,6 +48,29 @@ const validateEmail = async () => {
     result = false;
   }
   if (email === '') {
+    message.classList.remove('error');
+    message.classList.remove('valid');
+    message.innerText = '';
+  }
+  return result;
+};
+
+const dateValidation = async () => {
+  const pattern = /^[0-9]{2}[\/]{1}[0-9]{2}[\/]{1}[0-9]{4}$/g;
+  const message = document.getElementById('error-dob');
+  const dob = document.getElementById('dob').value;
+  if (dob.match(pattern)) {
+    message.innerText = 'Date Of Birth Valid';
+    message.classList.remove('error');
+    message.classList.add('valid');
+    result = true;
+  } else {
+    message.innerText = 'Ensure format is DD/MM/YYYY';
+    message.classList.add('error');
+    message.classList.remove('valid');
+    result = false;
+  }
+  if (dob === '') {
     message.classList.remove('error');
     message.classList.remove('valid');
     message.innerText = '';
@@ -120,10 +145,12 @@ const signup = async (ev) => {
   // dob
   if (dob.value === '' || dob.value == null) {
     errorDob.innerText = 'Date Of Birth is required';
+    errorDob.classList.add('error');
     messages.push('dob');
-  } else {
-    errorDob.innerText = '';
+  } else if (await dateValidation()) {
     form.set('dob', dob.value);
+  } else {
+    messages.push('dob');
   }
   // colour
   if (colour.value === '' || colour.value == null) {
@@ -155,7 +182,6 @@ const signup = async (ev) => {
 
 // wait for the document to load)
 
-
 const showPreview = (event) => {
   if (event.target.files.length > 0) { // has user select image file?
     const src = URL.createObjectURL(event.target.files[0]); // to target the selected image
@@ -172,7 +198,6 @@ const options = async () => {
     const breeds = response.data[i];
     const newOption = document.createElement('option');
     const optionText = document.createTextNode(breeds);
-    
     // set option text
     newOption.appendChild(optionText);
     // and option value

@@ -63,8 +63,8 @@ also by entering your email you agree to be contacted by ohmydawg through this m
           </select>
         </div>
         <div class="form-box">
-          <label for="dob"> Date Of Birth: </label> <span id="error-dob" class="error"></span>
-          <input type="text" id="dob" name="dob" placeholder="When were you born?" onfocus="(this.type='date')" onblur="(this.type='text')" required>
+          <label for="dob"> Date Of Birth: DD/MM/YYYY </label> <span id="error-dob" class="error"></span>
+          <input type="text" id="dob" name="dob" placeholder="When were you born?" onkeyup="dateValidation(event)" required>
         </div>
         <div class="form-box">
           <label for="colour"> Colour Of Fur: </label> <span id="error-colour" class="error"></span>
